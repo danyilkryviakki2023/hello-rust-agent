@@ -1,0 +1,7 @@
+[package]
+name = "hello"
+version = "0.1.0"
+edition = "2021"
+description = "Cross-platform Hello World in Rust (lab 1, variant 4)"
+
+[dependencies]
