@@ -39,8 +39,9 @@
 | Скрипт `setup_git.sh` на копії | створено гілки `master`, `develop`, `feature/hello-rust`, 7 комітів |
 | `cargo build` / `cargo test` | **не запускались у середовищі AI** (Rust там не встановлено) — студент запускає локально та в GitHub Actions і додає результат до звіту |
 
-## Шаблон для сесії Copilot (заповнює студент)
+## Шаблон для сесії Copilot
 
-| № | Запит до Copilot | Відповідь / що змінено вручну і чому |
-|---|---|---|
-| 1 | `/init` у режимі Agent, агент `build-engineer` | _[вставте]_ |
+| 1 | `/init` у режимі Agent, агент `build-engineer`, гілка `develop` у чистій копії репозиторію | Copilot виконав 29 кроків за 1 хв 45 с, створив 8 файлів (+113 −8): Cargo.toml, src/lib.rs, src/main.rs, tests/basic_addition.rs, ci.sh, ci.bat, ci.yml, docs/ai-log.md. Усі п'ять команд завершились зі статусом OK. |
+| 2 | Перевірка результату після /init | У терміналі: `git status` показує лише нові файли, наявні файли агента з develop не змінено; `cargo test` — BasicAddition ok, 2 passed; `check_repo.py` — 58/58 PASS; `ci.bat` пройшов повністю. |
+| 3 | Обмеження середовища | `bash ci.sh` у Copilot не запустився: на комп'ютері немає дистрибутива WSL. Windows-скрипт ci.bat пройшов повністю; Linux і macOS перевіряє GitHub Actions. |
+| 4 | Спостереження про агента | Агент сам створив `docs/ai-log.md`: у гілці develop цього файлу не було, жоден skill його не описує, а `check_repo.py` його вимагає. Висновок: зелений check не доводить змістовної правильності, тому вміст файлів, створених агентом, треба читати. |
