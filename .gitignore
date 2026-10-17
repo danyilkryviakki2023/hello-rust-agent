@@ -1,0 +1,19 @@
+# Rust / Cargo
+/target
+/dist
+
+# Тимчасові файли, кеші, логи
+*.log
+*.tmp
+.cache/
+
+# Секрети (ніколи не комітити)
+.env
+.env.*
+*.pem
+*.key
+
+# IDE / ОС
+.idea/
+.DS_Store
+Thumbs.db
