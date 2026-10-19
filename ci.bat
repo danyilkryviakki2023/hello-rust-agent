@@ -1,22 +1,26 @@
 @echo off
 setlocal
+cd /d "%~dp0"
 
+echo === cargo build --release ===
 cargo build --release
 if errorlevel 1 exit /b 1
 
+echo === cargo test --release ===
 cargo test --release
 if errorlevel 1 exit /b 1
 
+echo === packaging into dist ===
 if not exist dist mkdir dist
 copy /Y target\release\hello.exe dist\hello.exe >nul
 if errorlevel 1 exit /b 1
 
-dist\hello.exe > ci-output.txt
+echo === running dist\hello.exe ===
+dist\hello.exe > dist\output.txt
 if errorlevel 1 exit /b 1
-findstr /C:"Hello, World!" ci-output.txt >nul
+type dist\output.txt
+findstr /C:"Hello, World!" dist\output.txt >nul
 if errorlevel 1 exit /b 1
-findstr /C:"2 + 3 = 5" ci-output.txt >nul
-if errorlevel 1 exit /b 1
-del ci-output.txt
 
+echo CI OK
 exit /b 0

@@ -2,5 +2,11 @@
 name = "hello"
 version = "0.1.0"
 edition = "2021"
+<<<<<<< HEAD
 
 [dependencies]
+=======
+description = "Cross-platform Hello World in Rust (lab 1, variant 4)"
+
+[dependencies]
+>>>>>>> 12909ba8be400af8ef2dbaeacebad5d9c4766593
