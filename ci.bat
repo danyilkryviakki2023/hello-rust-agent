@@ -21,6 +21,8 @@ if errorlevel 1 exit /b 1
 type dist\output.txt
 findstr /C:"Hello, World!" dist\output.txt >nul
 if errorlevel 1 exit /b 1
+findstr /C:"2 + 3 = 5" dist\output.txt >nul
+if errorlevel 1 exit /b 1
 
 echo CI OK
 exit /b 0

@@ -21,5 +21,6 @@ echo "==> running dist/$BIN"
 OUT="$("./dist/$BIN")"
 echo "$OUT"
 echo "$OUT" | grep -q "Hello, World!"
+echo "$OUT" | grep -q "2 + 3 = 5"
 
 echo "CI OK"
