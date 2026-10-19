@@ -9,21 +9,25 @@ on:
 
 jobs:
   build-and-test:
+    name: build-and-test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Build and test on Unix
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build, test, package (Linux/macOS)
         if: runner.os != 'Windows'
         run: bash ci.sh
-      - name: Build and test on Windows
+      - name: Build, test, package (Windows)
         if: runner.os == 'Windows'
         shell: cmd
         run: ci.bat
-      - name: Upload artifact
+      - name: Upload executable
         uses: actions/upload-artifact@v4
         with:
           name: hello-${{ matrix.os }}
