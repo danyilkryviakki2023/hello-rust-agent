@@ -11,8 +11,4 @@ fn BasicAddition() {
 #[test]
 fn greeting_is_hello_world() {
     assert_eq!(greeting(), "Hello, World!");
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 12909ba8be400af8ef2dbaeacebad5d9c4766593
